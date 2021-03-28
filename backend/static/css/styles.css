@@ -76,7 +76,7 @@ body {
 
 table, th, td {
   border: 1px solid black;
-  width: 100%;
+  table-layout: auto;
   background-color: white;
   color: black;
 }
