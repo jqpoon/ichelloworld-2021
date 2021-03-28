@@ -74,6 +74,13 @@ body {
   outline: 0 !important;
 }
 
+table, th, td {
+  border: 1px solid black;
+  width: 100%;
+  background-color: white;
+  color: black;
+}
+
 hr {
   box-sizing: content-box;
   height: 0;
@@ -547,8 +554,6 @@ pre code {
 .container-md,
 .container-sm {
   width: 100%;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -10206,9 +10211,8 @@ body {
   width: 100%;
   height: auto;
   min-height: 35rem;
-  padding: 15rem 0;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("../assets/img/background.jpg");
-  background-position: center;
+  background-position: left;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
