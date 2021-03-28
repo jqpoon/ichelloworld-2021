@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.exceptions import abort
 import sqlite3
 
@@ -33,17 +33,19 @@ def button():
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        print(request.form)
-        return render_template('data.html')
-
+        return redirect(url_for('data'), code=307) # Redirect, keeping the POST data alive
+    
+    # GET method
     return render_template('index.html')
 
 @app.route('/data', methods=['GET', 'POST'])
 def data():
     if request.method == 'POST':
         user_search = request.form['userinput']
+        conn = get_db_connection()
+        posts = conn.execute('SELECT * FROM products WHERE item_name=' + user_search)
 
-        return render_template('data.html')
+        return render_template('data.html', items=[])
 
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM posts').fetchall()
