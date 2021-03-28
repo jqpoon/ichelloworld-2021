@@ -29,17 +29,21 @@
         <div class="container d-flex h-20 ">
             <table style="width:100%">
                 <tr>
+                    <th>Image</th>
                     <th>Item name</th>
                     <th>Price</th>
                     <th>Supermarket</th>
-                    <th>Image</th>
+                    <th>Link</th>
                 </tr>
                 {% for item in items %}
                     <tr>
+                        <td>
+                            <img src='{{item[4]}}' alt='Image for {{item[1]}}' />
+                        </td>
                         <td>{{item[1]}}</td>
                         <td>{{item[2]}}</td>
                         <td>{{item[6]}}</td>
-                        <td>{{item[5]}}</td>
+                        <td><a href="{{item[5]}}">Link to Sainsbury's website</a></td>
                     </tr>
                 {% endfor %}
             </table>

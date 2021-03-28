@@ -41,12 +41,13 @@ def index():
 @app.route('/data', methods=['GET', 'POST'])
 def data():
     if request.method == 'POST':
+        # WARNING - SQL INJECTIONS HIGHLY POSSIBLE (some kind of input sanitation needs to happen here)
         user_search = request.form['userinput']
         conn = get_db_connection()
         items = conn.execute('SELECT * FROM products WHERE product_name LIKE \'%' + user_search + '%\'')
         return render_template('data.html', items=items)
 
-    return render_template('data.html', items=posts)
+    return render_template('data.html', items=[])
 
 @app.route('/<int:post_id>')
 def post(post_id):
