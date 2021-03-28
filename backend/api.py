@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request
 from werkzeug.exceptions import abort
-import time
 import sqlite3
 
 def get_db_connection():
     conn = sqlite3.connect('database/database.db')
-    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+    c.row_factory = lambda cursor, row: {'foo': row[0]}
     return conn
 
 def get_post(post_id):
@@ -21,25 +21,35 @@ app = Flask(__name__)
 
 global count
 count = 0
-@app.route('/button', methods=["GET", "POST"])
+@app.route('/button', methods=['GET', 'POST'])
 def button():
-    if request.method == "POST":
+    if request.method == 'POST':
         global count
         count = count + 1
-        return render_template("button.html", ButtonPressed=count)
+        return render_template('button.html', ButtonPressed=count)
     
-    return render_template("button.html", ButtonPressed=count)
+    return render_template('button.html', ButtonPressed=count)
 
-@app.route('/time')
-def get_current_time():
-    return {'time': time.time()}
-
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
+    if request.method == 'POST':
+        print(request.form)
+        return render_template('data.html')
+
+    return render_template('index.html')
+
+@app.route('/data', methods=['GET', 'POST'])
+def data():
+    if request.method == 'POST':
+        user_search = request.form['userinput']
+
+        return render_template('data.html')
+
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM posts').fetchall()
     conn.close()
-    return render_template('index.html', posts=posts)
+
+    return render_template('data.html', items=posts)
 
 @app.route('/<int:post_id>')
 def post(post_id):
