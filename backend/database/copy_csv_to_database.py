@@ -9,7 +9,12 @@ def get_db_connection():
     c.row_factory = lambda cursor, row: {'foo': row[0]}
     return conn
 
-df = pd.read_csv('ramen')
+df = pd.read_csv('out.csv')
+df['total_price'].astype(int)
 
 conn = get_db_connection()
-df.to_sql("products", conn, if_exists="append")
+df.to_sql("products", conn, if_exists="replace")
+
+def clean_price(x):
+    x = x.replace('£', '').replace('p', '').replace('.', '')
+    return(x)
