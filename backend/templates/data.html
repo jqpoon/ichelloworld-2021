@@ -20,8 +20,8 @@
         <header class="masthead">
             <div class="container d-flex h-20 ">
                 <div class="text-center">
-                    <form class="form-inline d-flex" action="data.html">
-                        <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="text" placeholder="Enter grocery item..." />
+                    <form class="form-inline d-flex" action="data" method="POST">
+                        <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="userinput" placeholder="Enter grocery item..." />
                         <button class="btn btn-primary mx-auto" type="submit">Lets Save Money</button>
                     </form>
                 </div>
@@ -36,10 +36,10 @@
                 </tr>
                 {% for item in items %}
                     <tr>
-                        <td>{{item[0]}}</td>
                         <td>{{item[1]}}</td>
                         <td>{{item[2]}}</td>
-                        <td>{{item[3]}}</td>
+                        <td>{{item[6]}}</td>
+                        <td>{{item[5]}}</td>
                     </tr>
                 {% endfor %}
             </table>

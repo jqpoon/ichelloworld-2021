@@ -43,13 +43,8 @@ def data():
     if request.method == 'POST':
         user_search = request.form['userinput']
         conn = get_db_connection()
-        posts = conn.execute('SELECT * FROM products WHERE item_name=' + user_search)
-
-        return render_template('data.html', items=[])
-
-    conn = get_db_connection()
-    posts = conn.execute('SELECT * FROM posts').fetchall()
-    conn.close()
+        items = conn.execute('SELECT * FROM products WHERE product_name LIKE \'%' + user_search + '%\'')
+        return render_template('data.html', items=items)
 
     return render_template('data.html', items=posts)
 
