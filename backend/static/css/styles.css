@@ -10209,15 +10209,15 @@ body {
 .masthead {
   position: relative;
   width: 100%;
+  height: auto;
   min-height: 35rem;
-  background-position: left;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("../assets/img/background.jpg");
-  background-attachment: scroll;
-  height: 100%; 
-  /* Center and scale the image nicely */
-  background-position: center;
+  background-position: left;
   background-repeat: no-repeat;
+  background-attachment: scroll;
   background-size: cover;
+}
+
 .masthead h1 {
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 2.5rem;
