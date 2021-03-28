@@ -10,7 +10,8 @@ def get_db_connection():
     return conn
 
 df = pd.read_csv('out.csv')
-df['total_price'].astype(int)
+df['total_price'] = df['total_price'].astype(int)
+df.info()
 
 conn = get_db_connection()
 df.to_sql("products", conn, if_exists="replace")
