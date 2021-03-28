@@ -70,6 +70,7 @@ body {
   background-repeat: repeat-y;
   text-align: left;
   background-color: #fff;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("../assets/img/background.jpg");
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
