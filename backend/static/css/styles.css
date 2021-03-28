@@ -68,7 +68,6 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("../assets/img/background.jpg");
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -10216,7 +10215,7 @@ body {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("../assets/img/background.jpg");
   background-repeat: repeat-y;
   background-attachment: scroll;
-  background-size: cover;
+  background-size: auto;
 }
 .masthead h1 {
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
