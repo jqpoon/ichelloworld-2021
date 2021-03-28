@@ -1,0 +1,8 @@
+# Backend support
+flask
+python-dotenv
+
+# Scraping data from websites
+beautifulsoup4
+selenium
+pandas
